@@ -71,7 +71,7 @@
                                         echo <<<Client
                                             <tr>
                                                 <td><a href='tel:$telephone'>$telephone</a>
-                                                <input type="text" name="txtTelephone[]" id="txtTelephone$count" class='form-control'  value="$telephone">
+                                                <input type="hidden" name="txtTelephone[]" id="txtTelephone$count" class='form-control'  value="$telephone">
                                                 
                                                 </td>
                                                 <td><a href='javascript:void' class="btn btn-danger" data-action='eliminar' onclick='deleteRow(this)'><i class='fa fa-trash'></i></a></td>
