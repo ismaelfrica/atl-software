@@ -6,7 +6,8 @@
 			private $lastName; 
 			private $status; 
 
-            var $telephone;
+            private $telephone;
+            private $address;
 			
             public function __set($key, $value){
                 $this->$key = $value;
@@ -50,6 +51,7 @@
 				    echo ('Datos Insertados Correctamente');
 				}
 				$this->saveTelephone();
+                $this->saveAddress();
 				return $rs;
 			}
 			
@@ -94,7 +96,17 @@
 				$result  = Consulting::query($sql);
 
                 foreach ($this->telephone as $key => $telephone) {
-                   $sql = "insert into atl_client_telephone (id_client,`number`) values ('$this->id','$telephone')";
+                   $sql = "insert into atl_client_telephone (id_client,`number`,`status`) values ('$this->id','$telephone',1)";
+                   $result  = Consulting::query($sql);
+                }
+            }
+
+            function saveAddress(){
+                 $sql     = "update atl_client_address set status = 0  where id_client = '$this->id'";
+				$result  = Consulting::query($sql);
+
+                foreach ($this->address as $key => $address) {
+                   $sql = "insert into atl_client_address (id_client,`address`,`status`) values ('$this->id','$address',1)";
                    $result  = Consulting::query($sql);
                 }
             }

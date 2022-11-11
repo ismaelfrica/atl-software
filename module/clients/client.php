@@ -9,7 +9,7 @@
         $client->lastName  = (isset($_POST['txtLastName']))?$_POST['txtLastName']:$client->lastName;
         
         $client->telephone = empty($_POST['txtTelephone']) ? [] : $_POST['txtTelephone'];
-        $client->address   = empty($_POST['txtAddress']) ? [] : $_POST['txtAddress'];
+        $client->address   = empty($_POST['txtAdress']) ? [] : $_POST['txtAdress'];
 
         
 
@@ -70,7 +70,10 @@
 
                                         echo <<<Client
                                             <tr>
-                                                <td><a href='tel:$telephone'>$telephone</a></td>
+                                                <td><a href='tel:$telephone'>$telephone</a>
+                                                <input type="text" name="txtTelephone[]" id="txtTelephone$count" class='form-control'  value="$telephone">
+                                                
+                                                </td>
                                                 <td><a href='javascript:void' class="btn btn-danger" data-action='eliminar' onclick='deleteRow(this)'><i class='fa fa-trash'></i></a></td>
                                             </tr>
                                         Client;
@@ -84,7 +87,7 @@
 
                     <div class="col-lg-6 col-md-12">
                         <div class="text-center">
-                            <a href="javascript:void" class='btn btn-primary'data-action='Adresss'  onclick="addRow(this)" >Crear Direcci&oacute;n</a>
+                            <a href="javascript:void" class='btn btn-primary'data-action='Adress'  onclick="addRow(this)" >Crear Direcci&oacute;n</a>
                         </div>
                         <div class="table-responsive">
                             <table class="table">
@@ -94,7 +97,7 @@
                                         <th scope="col"></th>
                                     </tr>
                                 </thead>
-                                <tbody id="Adresss">
+                                <tbody id="Adress">
                                 <?php
                                     $data         = $client->showListAddress();
                                      $count        = 0;
@@ -106,8 +109,8 @@
 
                                         echo <<<Client
                                             <tr>
-                                                <td><a href='tel:$telephone'>$address</a></td>
-                                                <td>
+                                                <td><input type="text" name="txtAdress[]" id="txtAddress$count" class='form-control' required value="$address"></td>
+                                                
                                                 <td><a href='javascript:void' class="btn btn-danger" data-action='eliminar' onclick='deleteRow(this)'><i class='fa fa-trash'></i></a>
                                                     <a href='javascript:void' class="btn btn-info" data-id='$id' data-client-id='$client->id' onclick="viewMap(this)" data-action='verMapa'><i class='fa fa-map'></i></a>
                                                 </td>

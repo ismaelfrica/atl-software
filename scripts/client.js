@@ -65,10 +65,11 @@ const addRow = (data) =>{
         tr.appendChild(td);
         
         destino.appendChild(tr);
-     
+
+        (divContainer=="Telephone")?
         IMask(
             document.getElementById(`txt${divContainer}${num}`), {
               mask: '+{1}(000)000-0000'
-            });
+            }):"";
 }
 
