@@ -12,7 +12,9 @@
         $client->address   = empty($_POST['txtAdress']) ? [] : $_POST['txtAdress'];
 
         
-        echo "<script>loadIn('tablePrincipal','fileLoad.php');</script>";
+        echo "<script>loadIn('tablePrincipal','fileLoad.php?origin=home');
+        $('#formCLient').modal('hide')</script>";
+
         $client->guardar();
         exit();
     }else{
