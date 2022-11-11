@@ -18,7 +18,7 @@ function ismaelfricaFormValUpdate(formulario, receptor)
         });       
 }
 
-function formsubmit(formulario, receptor)
+function formsubmit (formulario, receptor)
 {
 	
 	formulario.bind("submit", function(e){
@@ -86,10 +86,7 @@ function loadIn(elemento, pagina, datos)
         data: datos,
         // Mostramos un mensaje con la respuesta de PHP
         success: function(data) {
-        //	$("#"+elemento).hide();
             $("#"+elemento).html(data);
-        //	$("#"+elemento).show('highlight', {},1000,''  );
-            
         }
     }) ;	
 }

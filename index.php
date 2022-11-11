@@ -67,7 +67,7 @@
                                     <th scope="col"></th>
                                 </tr>
                             </thead>
-                            <tbody>
+                            <tbody id="tablePrincipal">
                             <?php
                                 $data         = $client->showListData();
                                 $count        = 0;

@@ -12,7 +12,7 @@
         $client->address   = empty($_POST['txtAdress']) ? [] : $_POST['txtAdress'];
 
         
-
+        echo "<script>loadIn('tablePrincipal','fileLoad.php');</script>";
         $client->guardar();
         exit();
     }else{
